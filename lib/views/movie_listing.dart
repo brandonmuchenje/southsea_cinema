@@ -15,7 +15,17 @@ class MovieListing extends StatelessWidget {
         elevation: 0,
       ),
       drawer: const NavDrawer(),
-      body: const SizedBox.shrink(),
+      body: Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: const Color(0xFF2A2D36),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: const Text(
+          " Haunted Heist (2026) – PG 12",
+          style: TextStyle(color: Colors.white, fontSize: 18),
+        ),
+      ),
     );
   }
 }
