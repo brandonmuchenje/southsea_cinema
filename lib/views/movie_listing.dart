@@ -11,6 +11,16 @@ class MovieListing extends StatefulWidget {
 
 class _MovieListingState extends State<MovieListing> {
   int _totalPrice = 0;
+  String feedback = '';
+
+  void _decreaseQuantity() {
+    setState(() {
+      if (_totalPrice > 0) {
+        _totalPrice--;
+      }
+      feedback = 'removed from order';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +53,11 @@ class _MovieListingState extends State<MovieListing> {
               initialSelection: 0,
               dropdownMenuEntries: const [
                 DropdownMenuEntry(value: 0, label: '0 tickets'),
-                DropdownMenuEntry(value: 1, label: "1 Ticket"),
-                DropdownMenuEntry(value: 1, label: "2 Ticket"),
-                DropdownMenuEntry(value: 1, label: "3 Ticket"),
-                DropdownMenuEntry(value: 1, label: "4 Ticket"),
-                DropdownMenuEntry(value: 1, label: "5 Ticket")
+                DropdownMenuEntry(value: 1, label: '1 Ticket'),
+                DropdownMenuEntry(value: 2, label: '2 Tickets'),
+                DropdownMenuEntry(value: 3, label: '3 Tickets'),
+                DropdownMenuEntry(value: 4, label: '4 Tickets'),
+                DropdownMenuEntry(value: 5, label: '5 Tickets'),
               ],
               onSelected: (int? value) {
                 if (value != null) {
@@ -57,6 +67,30 @@ class _MovieListingState extends State<MovieListing> {
                 }
               },
             ),
+            const SizedBox(height: 20),
+            Container(
+              color: Colors.lightBlue,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        feedback = 'added to order';
+                      });
+                    },
+                    child: const Text('add'),
+                  ),
+                  const SizedBox(width: 10),
+                  ElevatedButton(
+                    onPressed: _decreaseQuantity,
+                    child: const Text('remove'),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            Text(feedback),
           ],
         ),
       ),
