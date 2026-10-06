@@ -17,7 +17,14 @@ class MovieListing extends StatelessWidget {
       drawer: const NavDrawer(),
       body: Container(
           child: Column(
-        children: [Text("Haunted Heist 2026 (PG)")],
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("Haunted Heist 2026 (PG)"),
+          Text("Southsea cinema"),
+          Text("Thursday 22 Oct 2026 18:00 end 19:14"),
+          Text(
+              "Olease note that discounts/ Membership Benefits will be applied once you have seleceted your tickets")
+        ],
       )),
     );
   }
