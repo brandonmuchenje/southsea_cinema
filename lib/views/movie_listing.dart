@@ -81,11 +81,8 @@ class _MovieListingState extends State<MovieListing> {
                     },
                     child: const Text('add'),
                   ),
-                  const SizedBox(width: 10),
-                  ElevatedButton(
-                    onPressed: _decreaseQuantity,
-                    child: const Text('remove'),
-                  ),
+                  
+                
                 ],
               ),
             ),
