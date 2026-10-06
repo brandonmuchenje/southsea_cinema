@@ -16,14 +16,25 @@ class MovieListing extends StatelessWidget {
       ),
       drawer: const NavDrawer(),
       body: Container(
+        padding: const EdgeInsets.all(20),
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("Haunted Heist 2026 (PG)"),
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment. start,
+        children: const [
+          Text(
+            "Haunted Heist 2026 (PG)",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+          
+          SizedBox(height: 10),
           Text("Southsea cinema"),
+          SizedBox(height: 20),
           Text("Thursday 22 Oct 2026 18:00 end 19:14"),
           Text(
-              "Olease note that discounts/ Membership Benefits will be applied once you have seleceted your tickets")
+              "Please note that discounts/ Membership Benefits will be applied once you have seleceted your tickets")
+          DropdownMenu<int>(
+            initialSelection: 0,
+          ),    
         ],
       )),
     );
