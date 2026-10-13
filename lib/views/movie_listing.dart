@@ -36,7 +36,7 @@ class _MovieListingState extends State<MovieListing> {
         padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               "Haunted Heist 2026 (PG)",
@@ -68,21 +68,13 @@ class _MovieListingState extends State<MovieListing> {
               },
             ),
             const SizedBox(height: 20),
-            Container(
-              color: Colors.lightBlue,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        feedback = 'added to order';
-                      });
-                    },
-                    child: const Text('add'),
-                  ),
-                ],
-              ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  feedback = 'added to order';
+                });
+              },
+              child: const Text('add'),
             ),
             const SizedBox(height: 20),
             Text(feedback),
