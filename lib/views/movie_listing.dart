@@ -81,8 +81,6 @@ class _MovieListingState extends State<MovieListing> {
                     },
                     child: const Text('add'),
                   ),
-                  
-                
                 ],
               ),
             ),
