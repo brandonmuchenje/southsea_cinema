@@ -13,15 +13,6 @@ class _MovieListingState extends State<MovieListing> {
   int _totalPrice = 0;
   String feedback = '';
 
-  void _decreaseQuantity() {
-    setState(() {
-      if (_totalPrice > 0) {
-        _totalPrice--;
-      }
-      feedback = 'removed from order';
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
