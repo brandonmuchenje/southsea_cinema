@@ -1,12 +1,11 @@
-class Movies {
+class Movie {
   final String id;
   final String name;
   final String description;
   final double price;
   final String imagePath;
 
-
-  const Movies({
+  const Movie({
     required this.id,
     required this.name,
     required this.description,
@@ -14,6 +13,3 @@ class Movies {
     required this.imagePath,
   });
 }
-
-  
-
