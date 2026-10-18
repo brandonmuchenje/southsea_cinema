@@ -22,7 +22,29 @@ class MovieCard extends StatelessWidget {
          Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            image.asset("assets/OIP.jpg")
+            Image.asset("assets/OIP.jpg"),
+            const SizedBox( width: 16),
+            Expanded(
+              child:Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                      "Haunted Heist 2026 (PG)",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),                   
+                    ),
+              ElevatedButton(
+                onPressed:() {
+
+                },
+                child: const Text("Book Tickets"),
+                ),
+                ],
+              ) 
+              ),
             
           ],
          ), 
