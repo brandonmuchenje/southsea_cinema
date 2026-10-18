@@ -9,6 +9,8 @@ class MovieRepository {
           description: "a scary movie about robbong a haunted house",
           price: 10.99,
           imagePath: "assets/images/oip.jpg"),
+
+      
     ];
   }
 }
