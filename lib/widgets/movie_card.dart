@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/models/movie.dart';
+import 'package:southsea_cinema/screens/order_screen.dart';
 
 class MovieCard extends StatelessWidget {
   final Movie movie;
@@ -22,7 +23,7 @@ class MovieCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  movie.posterImagePath,
+                  movie.imagePath,
                   width: 80,
                   height: 120,
                   fit: BoxFit.cover,
@@ -33,7 +34,7 @@ class MovieCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '${movie.title} (${movie.ageRating})',
+                        movie.name,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -42,7 +43,7 @@ class MovieCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        movie.synopsis,
+                        movie.description,
                         style: const TextStyle(
                           color: Colors.white70,
                         ),
@@ -57,16 +58,19 @@ class MovieCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  movie.screeningTime,
+                  '£${movie.price.toStringAsFixed(2)}',
                   style: const TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     color: Colors.white,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    print('Booking tickets for ${movie.title}');
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return OrderScreen(movie: movie);
+                    }));
                   },
                   child: const Text('Book Tickets'),
                 ),
