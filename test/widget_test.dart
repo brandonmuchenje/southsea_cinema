@@ -6,8 +6,8 @@ void main() {
   testWidgets('Basic app loading test', (WidgetTester tester) async {
     await tester.pumpWidget(const SouthseaCinemaApp());
 
-    await tester.pump();
-    
+    await tester.pumpAndSettle();
+
     expect(find.byType(MenuScreen), findsOneWidget);
   });
 }

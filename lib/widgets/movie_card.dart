@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/models/movie.dart';
-import 'package:southsea_cinema/screens/order_screen.dart';
-import 'package:southsea_cinema/views/movie_listing.dart';
 
 class MovieCard extends StatelessWidget {
   final Movie movie;
@@ -14,7 +12,6 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: const Color(0xFF1E2129),
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -38,7 +35,7 @@ class MovieCard extends StatelessWidget {
                       Text(
                         movie.name,
                         style: const TextStyle(
-                          color: Colors.lightBlueAccent,
+                          color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
@@ -46,37 +43,34 @@ class MovieCard extends StatelessWidget {
                       const SizedBox(height: 8),
                       Text(
                         movie.description,
-                        style: const TextStyle(color: Colors.white70),
+                        style: const TextStyle(
+                          color: Colors.white70,
+                        ),
                       ),
                     ],
                   ),
                 ),
               ],
             ),
-
             const SizedBox(height: 16),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '${movie.formattedPrice} ${movie.screeningTime}  •  £${movie.price.toStringAsFixed(2)}',
+                  movie.screeningTime,
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MovieListing(movie: movie),
-                      ),
-                    );
-                  },
-                  child: const Text('BOOK NOW'),
+                Text(
+                  movie.formattedPrice,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),
