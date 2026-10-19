@@ -31,63 +31,78 @@ class _MovieListingState extends State<MovieListing> {
       drawer: const NavDrawer(),
       body: Container(
         padding: const EdgeInsets.all(20),
-        child: Column(
+
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              widget.movie.name,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            Image.asset(
+              widget.movie.imagePath,
+              width: 200,
+              height: 250,
+              fit: BoxFit.cover,
             ),
-            const SizedBox(height: 10),
-
-            const Text("Southsea cinema"),
-            const SizedBox(height: 20),
-
-            Text(widget.movie.screeningTime),
-            const SizedBox(height: 10),
-
-            const Text(
-              "Please note that discounts/ Membership Benefits will be applied once you have selected your tickets",
-              textAlign: TextAlign.center,
+            const SizedBox(width: 20),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.movie.name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  const Text("Southsea Cinema"),
+                  const Text("Southsea cinema"),
+                  const SizedBox(height: 10),
+                  Text(widget.movie.screeningTime),
+                  const SizedBox(height: 10),
+                  const Text(
+                    "Please note that discounts/ Membership Benefits will be applied once you have selected your tickets",
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 20),
+                  DropdownMenu<int>(
+                    initialSelection: 0,
+                    dropdownMenuEntries: const [
+                      DropdownMenuEntry(value: 0, label: '0 tickets'),
+                      DropdownMenuEntry(value: 1, label: '1 Ticket'),
+                      DropdownMenuEntry(value: 2, label: '2 Tickets'),
+                      DropdownMenuEntry(value: 3, label: '3 Tickets'),
+                      DropdownMenuEntry(value: 4, label: '4 Tickets'),
+                      DropdownMenuEntry(value: 5, label: '5 Tickets'),
+                    ],
+                    onSelected: (value) {
+                      setState(() {
+                        _ticketQuantity = value ?? 0;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (_ticketQuantity > 0) {
+                        final totalPrice =
+                            widget.movie.price * _ticketQuantity;
+                        setState(() {
+                          feedback =
+                              '$_ticketQuantity ticket(s) added (£${totalPrice.toStringAsFixed(2)})';
+                        });
+                      } else {
+                        setState(() {
+                          feedback = 'Please select at least 1 ticket';
+                        });
+                      }
+                    },
+                    child: const Text('add'),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(feedback),
+                ],
+              ),
             ),
-            const SizedBox(height: 20),
-
-            DropdownMenu<int>(
-              initialSelection: 0,
-              dropdownMenuEntries: const [
-                DropdownMenuEntry(value: 0, label: '0 tickets'),
-                DropdownMenuEntry(value: 1, label: '1 Ticket'),
-                DropdownMenuEntry(value: 2, label: '2 Tickets'),
-                DropdownMenuEntry(value: 3, label: '3 Tickets'),
-                DropdownMenuEntry(value: 4, label: '4 Tickets'),
-                DropdownMenuEntry(value: 5, label: '5 Tickets'),
-              ],
-              onSelected: (value) {
-                setState(() {
-                  _ticketQuantity = value ?? 0;
-                });
-              },
-            ),
-            const SizedBox(height: 20),
-
-            ElevatedButton(
-              onPressed: () {
-                if (_ticketQuantity > 0) {
-                  final totalPrice = widget.movie.price * _ticketQuantity;
-                  setState(() {
-                    feedback =
-                        '$_ticketQuantity ticket(s) added (£${totalPrice.toStringAsFixed(2)})';
-                  });
-                } else {
-                  setState(() {
-                    feedback = 'Please select at least 1 ticket';
-                  });
-                }
-              },
-              child: const Text('add'),
-            ),
-
-            const SizedBox(height: 20),
-            Text(feedback),
           ],
         ),
       ),
