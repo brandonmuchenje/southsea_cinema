@@ -16,7 +16,7 @@ class MovieRepository {
         name: "White Chicks", 
         description: "Two agnets going undercover as white wome", 
         price: 10.99,
-        imagePath: "assets/images/white_chicks.jpg",
+        imagePath: "assets/images/white chicks.jpg",
         screeningTime: 'Friday 23 Oct 2026 20:00'
         )
 

@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
+import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
-import 'package:southsea_cinema/screens/menu_screen.dart';
 
 class MovieListing extends StatefulWidget {
-  const MovieListing({super.key});
+  final Movie movie;
+
+  const MovieListing({
+    super.key,
+    required this.movie,
+  });
 
   @override
   State<MovieListing> createState() => _MovieListingState();
 }
 
 class _MovieListingState extends State<MovieListing> {
-  int _totalPrice = 0;
+  int _ticketQuantity = 0;
   String feedback = '';
 
   @override
@@ -27,20 +32,25 @@ class _MovieListingState extends State<MovieListing> {
       body: Container(
         padding: const EdgeInsets.all(20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Haunted Heist 2026 (PG)",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            Text(
+              widget.movie.name,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             const SizedBox(height: 10),
+
             const Text("Southsea cinema"),
             const SizedBox(height: 20),
-            const Text("Thursday 22 Oct 2026 18:00 end 19:14"),
+
+            Text(widget.movie.screeningTime),
+            const SizedBox(height: 10),
+
             const Text(
-              "Please note that discounts/ Membership Benefits will be applied once you have seleceted your tickets",
+              "Please note that discounts/ Membership Benefits will be applied once you have selected your tickets",
+              textAlign: TextAlign.center,
             ),
+            const SizedBox(height: 20),
+
             DropdownMenu<int>(
               initialSelection: 0,
               dropdownMenuEntries: const [
@@ -51,23 +61,31 @@ class _MovieListingState extends State<MovieListing> {
                 DropdownMenuEntry(value: 4, label: '4 Tickets'),
                 DropdownMenuEntry(value: 5, label: '5 Tickets'),
               ],
-              onSelected: (int? value) {
-                if (value != null) {
-                  setState(() {
-                    _totalPrice = value;
-                  });
-                }
+              onSelected: (value) {
+                setState(() {
+                  _ticketQuantity = value ?? 0;
+                });
               },
             ),
             const SizedBox(height: 20),
+
             ElevatedButton(
               onPressed: () {
-                setState(() {
-                  feedback = 'added to order';
-                });
+                if (_ticketQuantity > 0) {
+                  final totalPrice = widget.movie.price * _ticketQuantity;
+                  setState(() {
+                    feedback =
+                        '$_ticketQuantity ticket(s) added (£${totalPrice.toStringAsFixed(2)})';
+                  });
+                } else {
+                  setState(() {
+                    feedback = 'Please select at least 1 ticket';
+                  });
+                }
               },
               child: const Text('add'),
             ),
+
             const SizedBox(height: 20),
             Text(feedback),
           ],
