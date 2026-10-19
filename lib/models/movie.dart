@@ -1,3 +1,4 @@
+
 class Movie {
   final String id;
   final String name;
@@ -6,13 +7,14 @@ class Movie {
   final String imagePath;
   final String screeningTime;
 
-  const Movie(
-      {required this.id,
-      required this.name,
-      required this.description,
-      required this.price,
-      required this.imagePath,
-      required this.screeningTime});
+  const Movie({
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.price,
+    required this.imagePath,
+    required this.screeningTime,
+  });
 
-  String get formattedPrice => "£${price.toStringAsFixed(2)}";
+  String get formattedPrice => '£${price.toStringAsFixed(2)}';
 }
