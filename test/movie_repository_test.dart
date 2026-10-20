@@ -24,6 +24,6 @@ void main() {
 
     expect(movies[1].name, 'White Chicks');
 
-    expect(movies[1].price, 99.99);
+    expect(movies[1].name, "Spiderman");
   });
 }

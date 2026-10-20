@@ -8,14 +8,14 @@ void main() {
         id: 'm1',
         name: 'Haunted Heist 2026',
         description: 'A supernatural heist.',
-        price: 12.50,
+        price: 10.99,
         imagePath: 'assets/OIP.jpg',
         screeningTime: 'Thursday 22 Oct 2026 18:00',
       );
 
       expect(movie.id, 'm1');
       expect(movie.name, 'Haunted Heist 2026');
-      expect(movie.price, 12.50);
+      expect(movie.price, 10.99);
     });
 
     test('formattedPrice correctly formats prices with pence and whole pounds', () {
@@ -23,7 +23,7 @@ void main() {
         id: 'm1',
         name: 'Haunted Heist 2026',
         description: 'A supernatural heist.',
-        price: 12.50,
+        price: 10.99,
         imagePath: 'assets/OIP.jpg',
         screeningTime: 'Thursday 22 Oct 2026 18:00',
       );
@@ -32,7 +32,7 @@ void main() {
         id: 'm2',
         name: 'White Chicks',
         description: 'Undercover FBI agents.',
-        price: 15.00,
+        price: 10.99,
         imagePath: 'assets/images/white_chicks.jpg',
         screeningTime: 'Friday 23 Oct 2026 20:00',
       );
