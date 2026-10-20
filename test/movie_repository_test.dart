@@ -17,4 +17,13 @@ void main() {
     expect(movies[1].name, 'White Chicks');
     expect(movies[1].price, 10.99);
   });
+
+  test('INTENTIONAL FAIL: second movie price check flags up', () {
+    final repository = MovieRepository();
+    final movies = repository.getMovies();
+
+    expect(movies[1].name, 'White Chicks');
+
+    expect(movies[1].price, 99.99);
+  });
 }
