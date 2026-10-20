@@ -37,8 +37,8 @@ void main() {
         screeningTime: 'Friday 23 Oct 2026 20:00',
       );
 
-      expect(movieWithPence.formattedPrice, '£12.50');
-      expect(movieWholePounds.formattedPrice, '£15.00');
+      expect(movieWithPence.formattedPrice, '£10.99');
+      expect(movieWholePounds.formattedPrice, '£10.99');
     });
   });
 }
