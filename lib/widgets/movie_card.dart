@@ -76,8 +76,8 @@ class MovieCard extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,        // blue button
-                    foregroundColor: Colors.grey[300],   // grey text
+                    backgroundColor: Colors.blue,        
+                    foregroundColor: Colors.grey[300],   
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
