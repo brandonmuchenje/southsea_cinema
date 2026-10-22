@@ -12,7 +12,9 @@ class MenuScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Southsea Cinema"),
+        title: const Text("Southsea Cinema",
+        style: TextStyle(color: Colors.white),
+        ),
       ),
       body: ListView.builder(
         itemCount: movies.length,
