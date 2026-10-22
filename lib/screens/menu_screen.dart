@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/movie_card.dart';
 import 'package:southsea_cinema/repositories/movie_repository.dart';
 
@@ -7,20 +8,22 @@ class MenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MovieRepository respository = MovieRepository();
-    final movies = respository.getMovies();
+    final MovieRepository repository = MovieRepository();
+    final List<Movie> movies = repository.getMovies();
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Southsea Cinema",
-        style: TextStyle(color: Colors.white),
+        title: const Text(
+          "Southsea Cinema",
+        style: TextStyle(
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
         ),
+          ),   
       ),
       body: ListView.builder(
         itemCount: movies.length,
-        itemBuilder: (context, index) {
-          return MovieCard(movie: movies[index]);
-        },
+        itemBuilder: (context, index) => MovieCard(movie: movies[index]),
       ),
     );
   }
