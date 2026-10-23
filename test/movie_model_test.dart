@@ -42,7 +42,7 @@ void main() {
       );
 
       expect(movieWithPence.formattedPrice, '£10.99');
-      expect(movieWholePounds.formattedPrice, '£10.99');
+      expect(movieWholePounds.formattedPrice, '£15.00');
     });
   });
 }
