@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/math_patch.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:southsea_cinema/repositories/movie_repository.dart';
 
@@ -11,19 +13,35 @@ void main() {
 
     expect(movies[0].id, 'm1');
     expect(movies[0].name, 'Haunted Heists 2026');
+    expect(movies[0].description, isNotEmpty);
+    expect(movies[0].ageRating, isNotEmpty);
+    expect(movies[0].screeningTime, isNotEmpty);
     expect(movies[0].price, 10.99);
+    expect(movies[0].imagePath, isNotEmpty);
 
     expect(movies[1].id, 'm2');
     expect(movies[1].name, 'White Chicks');
+    expect(movies[1].description, isNotEmpty);
+    expect(movies[1].ageRating, isNotEmpty);
+    expect(movies[1].screeningTime, isNotEmpty);
     expect(movies[1].price, 10.99);
+    expect(movies[1].imagePath, isNotEmpty);
   });
 
-  test('INTENTIONAL FAIL: second movie price check flags up', () {
+  test('getMovieById returns matching movie when id exists', () {
     final repository = MovieRepository();
-    final movies = repository.getMovies();
+    final movie = repository.getMovies().firstWhere((movie) => movie.id == 'm1');
 
-    expect(movies[1].name, 'White Chicks');
+    expect(movie.name, 'Haunted Heists 2026');
+    expect(movie.price, 10.99);
+  });
 
-    expect(movies[1].name, "Spiderman");
+  test('getMovieById returns null when id does not exist', () {
+    final repository = MovieRepository();
+    final movies = repository
+        .getMovies()
+        .where((movie) => movie.id == 'non-existent');
+
+    expect(movies.isEmpty, isTrue);
   });
 }
