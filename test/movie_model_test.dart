@@ -8,6 +8,7 @@ void main() {
         id: 'm1',
         name: 'Haunted Heist 2026',
         description: 'A supernatural heist.',
+        ageRating: "PG",
         price: 10.99,
         imagePath: 'assets/OIP.jpg',
         screeningTime: 'Thursday 22 Oct 2026 18:00',
@@ -18,11 +19,13 @@ void main() {
       expect(movie.price, 10.99);
     });
 
-    test('formattedPrice correctly formats prices with pence and whole pounds', () {
+    test('formattedPrice correctly formats prices with pence and whole pounds',
+        () {
       const movieWithPence = Movie(
         id: 'm1',
         name: 'Haunted Heist 2026',
         description: 'A supernatural heist.',
+        ageRating: "PG",
         price: 10.99,
         imagePath: 'assets/OIP.jpg',
         screeningTime: 'Thursday 22 Oct 2026 18:00',
@@ -32,6 +35,7 @@ void main() {
         id: 'm2',
         name: 'White Chicks',
         description: 'Undercover FBI agents.',
+        ageRating: 'PG',
         price: 10.99,
         imagePath: 'assets/images/white_chicks.jpg',
         screeningTime: 'Friday 23 Oct 2026 20:00',

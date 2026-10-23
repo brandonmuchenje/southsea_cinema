@@ -37,7 +37,7 @@ class MovieCard extends StatelessWidget {
                       Text(
                         movie.name,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.lightBlueAccent,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
@@ -46,7 +46,7 @@ class MovieCard extends StatelessWidget {
                       Text(
                         movie.description,
                         style: const TextStyle(
-                          color: Colors.white70,
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -76,8 +76,8 @@ class MovieCard extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,        
-                    foregroundColor: Colors.grey[300],   
+                    backgroundColor: Colors.lightBlue,        
+                    foregroundColor: Colors.white,   
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),

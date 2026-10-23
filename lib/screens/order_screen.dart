@@ -5,7 +5,11 @@ class OrderScreen extends StatefulWidget {
   final Movie movie;
   final int maxTickets;
 
-  const OrderScreen({super.key, required this.movie, this.maxTickets = 10});
+  const OrderScreen({
+    super.key, 
+    required this.movie, 
+    this.maxTickets = 10
+    });
 
   @override
   State<OrderScreen> createState() {
@@ -20,7 +24,11 @@ class _OrderScreenState extends State<OrderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Order ${widget.movie.name}"),
+        title: Text("Order ${widget.movie.name}",
+        style: const TextStyle(
+          color: Colors.white,
+        ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),

@@ -1,8 +1,8 @@
-
 class Movie {
   final String id;
   final String name;
   final String description;
+  final String ageRating;
   final double price;
   final String imagePath;
   final String screeningTime;
@@ -11,6 +11,7 @@ class Movie {
     required this.id,
     required this.name,
     required this.description,
+    required this.ageRating,
     required this.price,
     required this.imagePath,
     required this.screeningTime,
