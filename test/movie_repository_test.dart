@@ -30,7 +30,8 @@ void main() {
 
   test('getMovieById returns matching movie when id exists', () {
     final repository = MovieRepository();
-    final movie = repository.getMovies().firstWhere((movie) => movie.id == 'm1');
+    final movie =
+        repository.getMovies().firstWhere((movie) => movie.id == 'm1');
 
     expect(movie.name, 'Haunted Heists 2026');
     expect(movie.price, 10.99);
@@ -38,9 +39,8 @@ void main() {
 
   test('getMovieById returns null when id does not exist', () {
     final repository = MovieRepository();
-    final movies = repository
-        .getMovies()
-        .where((movie) => movie.id == 'non-existent');
+    final movies =
+        repository.getMovies().where((movie) => movie.id == 'non-existent');
 
     expect(movies.isEmpty, isTrue);
   });
