@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/movie_card.dart';
-import 'package:southsea_cinema/screens/menu_screen.dart';
+import 'package:southsea_cinema/views/menu_screen.dart';
 
 void main() {
   group('MovieCard widget tests', () {

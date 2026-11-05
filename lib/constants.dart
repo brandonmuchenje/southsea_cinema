@@ -16,3 +16,9 @@ const TextStyle cinemaHeaderStyle = TextStyle(
   fontSize: 18,
   fontWeight: FontWeight.bold,
 );
+
+const TextStyle cinemaSelectionTitleStyle = TextStyle(
+  color: cinemaFontWhite,
+  fontSize: 22,
+  fontWeight: FontWeight.bold,
+);
