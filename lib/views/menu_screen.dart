@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/movie_card.dart';
 import 'package:southsea_cinema/repositories/movie_repository.dart';
+import 'package:southsea_cinema/widgets/basket_button.dart';
+import 'package:southsea_cinema/constants.dart';
+
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -14,13 +17,12 @@ class MenuScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Southsea Cinema",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
+          appTitle,
+          style: cinemaHeaderStyle,
         ),
-          ),   
+        actions: const [
+          BasketButton(),
+        ],
       ),
       body: ListView.builder(
         itemCount: movies.length,
