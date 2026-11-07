@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
+import 'package:southsea_cinema/models/ticket_item.dart';
+import 'package:southsea_cinema/repositories/basket_repository.dart';
+import 'package:southsea_cinema/widgets/primary_button.dart';
 
 class MovieListing extends StatefulWidget {
   final Movie movie;
@@ -18,6 +21,26 @@ class MovieListing extends StatefulWidget {
 class _MovieListingState extends State<MovieListing> {
   int _ticketQuantity = 0;
   String feedback = '';
+
+  void _addToBasket() {
+    if (_ticketQuantity > 0) {
+      final TicketItem item = TicketItem(
+        movie: widget.movie,
+        quantity: _ticketQuantity,
+      );
+
+      BasketRepository.instance.addItem(item);
+
+      setState(() {
+        feedback =
+            'Added $_ticketQuantity ticket(s) for ${widget.movie.name} to basket';
+      });
+    } else {
+      setState(() {
+        feedback = 'Please select at least 1 ticket';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,25 +104,16 @@ class _MovieListingState extends State<MovieListing> {
                     },
                   ),
                   const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_ticketQuantity > 0) {
-                        final totalPrice =
-                            widget.movie.price * _ticketQuantity;
-                        setState(() {
-                          feedback =
-                              '$_ticketQuantity ticket(s) added (£${totalPrice.toStringAsFixed(2)})';
-                        });
-                      } else {
-                        setState(() {
-                          feedback = 'Please select at least 1 ticket';
-                        });
-                      }
-                    },
-                    child: const Text('add'),
+
+                  PrimaryButton(
+                    label: 'Add to Basket',
+                    onPressed: _addToBasket,
                   ),
+
                   const SizedBox(height: 20),
+
                   Text(feedback),
+
                 ],
               ),
             ),

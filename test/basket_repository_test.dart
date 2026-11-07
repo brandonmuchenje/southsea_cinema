@@ -1,27 +1,26 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:southsea_cinema/models/movie.dart';
-import 'package:southsea_cinema/models/ticket_item.dart';
 import 'package:southsea_cinema/repositories/basket_repository.dart';
 
 const Movie testMovie1 = Movie(
   id: 'm1',
-  name: 'Movie One',
-  description: 'Test movie',
+  name: 'Haunted Heists 2026',
+  description: 'A scary movie about robbing a haunted house',
   ageRating: 'PG',
-  price: 10.0,
-  imagePath: 'assets/images/test.jpg',
-  screeningTime: 'Thursday 18:00',
+  price: 10.99,
+  imagePath: 'assets/images/oip.jpg',
+  screeningTime: 'Thursday 22 Oct 2026 18:00',
 );
 
 const Movie testMovie2 = Movie(
   id: 'm2',
-  name: 'Movie Two',
-  description: 'Test movie',
-  ageRating: '15',
-  price: 6.0,
-  imagePath: 'assets/images/test2.jpg',
-  screeningTime: 'Friday 20:00',
+  name: 'White Chicks',
+  description: 'Two agents going undercover as white women',
+  ageRating: 'PG',
+  price: 10.99,
+  imagePath: 'assets/images/white_chicks.jpg',
+  screeningTime: 'Friday 23 Oct 2026 20:00',
 );
 
 void main() {
@@ -30,6 +29,6 @@ void main() {
   });
 
   group('BasketRepository Tests', () {
-    
+
   });
 }
