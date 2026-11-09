@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:southsea_cinema/models/movie.dart';
-import 'package:southsea_cinema/repositories/basket_repository.dart';
+import 'package:southsea_cinema/repositories/cart_repository.dart';
 
 const Movie testMovie1 = Movie(
   id: 'm1',
@@ -25,10 +25,10 @@ const Movie testMovie2 = Movie(
 
 void main() {
   setUp(() {
-    BasketRepository.instance.clear();
+    CartRepository.instance.clear();
   });
 
-  group('BasketRepository Tests', () {
+  group('CartRepository Tests', () {
 
   });
 }
