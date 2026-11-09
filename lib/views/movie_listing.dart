@@ -3,7 +3,7 @@ import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/basket_button.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
-import 'package:southsea_cinema/models/ticket_item.dart';
+import 'package:southsea_cinema/models/cart_item.dart';
 import 'package:southsea_cinema/repositories/basket_repository.dart';
 import 'package:southsea_cinema/widgets/primary_button.dart';
 
@@ -25,7 +25,7 @@ class _MovieListingState extends State<MovieListing> {
 
   void _addToBasket() {
     if (_ticketQuantity > 0) {
-      final TicketItem item = TicketItem(
+      final CartItem item = CartItem(
         movie: widget.movie,
         quantity: _ticketQuantity,
       );

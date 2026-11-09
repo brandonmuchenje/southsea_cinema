@@ -1,10 +1,10 @@
 import 'package:southsea_cinema/models/movie.dart';
 
-class TicketItem {
+class CartItem {
   final Movie movie;
   final int quantity;
 
-  const TicketItem({
+  const CartItem({
     required this.movie,
     required this.quantity,
   });

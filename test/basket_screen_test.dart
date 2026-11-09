@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:southsea_cinema/models/movie.dart';
-import 'package:southsea_cinema/models/ticket_item.dart';
+import 'package:southsea_cinema/models/cart_item.dart';
 import 'package:southsea_cinema/repositories/basket_repository.dart';
 import 'package:southsea_cinema/views/basket_screen.dart';
 
@@ -40,7 +40,7 @@ void main() {
   testWidgets(
     'BasketScreen displays basket items',
     (WidgetTester tester) async {
-      const TicketItem item = TicketItem(
+      const CartItem item = CartItem(
         movie: testMovie,
         quantity: 2,
       );
