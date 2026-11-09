@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/models/movie.dart';
+import 'package:southsea_cinema/widgets/basket_button.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 import 'package:southsea_cinema/models/ticket_item.dart';
 import 'package:southsea_cinema/repositories/basket_repository.dart';
@@ -47,6 +48,9 @@ class _MovieListingState extends State<MovieListing> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(appTitle, style: cinemaHeaderStyle),
+        actions: const [
+          BasketButton(),
+        ],
         backgroundColor: cinemaSurface,
         iconTheme: const IconThemeData(color: cinemaBrand),
         elevation: 0,
@@ -54,7 +58,6 @@ class _MovieListingState extends State<MovieListing> {
       drawer: const NavDrawer(),
       body: Container(
         padding: const EdgeInsets.all(20),
-
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -104,16 +107,12 @@ class _MovieListingState extends State<MovieListing> {
                     },
                   ),
                   const SizedBox(height: 20),
-
                   PrimaryButton(
                     label: 'Add to Basket',
                     onPressed: _addToBasket,
                   ),
-
                   const SizedBox(height: 20),
-
                   Text(feedback),
-
                 ],
               ),
             ),
