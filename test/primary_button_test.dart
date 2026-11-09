@@ -3,46 +3,50 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:southsea_cinema/widgets/primary_button.dart';
 
 void main() {
-  testWidgets(
-    'PrimaryButton renders its label',
-    (WidgetTester tester) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: PrimaryButton(
-              label: 'BOOK NOW',
-              onPressed: () {},
+
+  
+  group('PrimaryButton Tests', () {
+    testWidgets(
+      'PrimaryButton renders its label',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: PrimaryButton(
+                label: 'BOOK NOW',
+                onPressed: () {},
+              ),
             ),
           ),
-        ),
-      );
+        );
 
-      expect(find.text('BOOK NOW'), findsOneWidget);
-    },
-  );
+        expect(find.text('BOOK NOW'), findsOneWidget);
+      },
+    );
+    testWidgets(
+      'PrimaryButton invokes onPressed when tapped',
+      (WidgetTester tester) async {
+        bool wasPressed = false;
 
-  testWidgets(
-    'PrimaryButton invokes onPressed when tapped',
-    (WidgetTester tester) async {
-      bool wasPressed = false;
-
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: PrimaryButton(
-              label: 'BOOK NOW',
-              onPressed: () {
-                wasPressed = true;
-              },
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: PrimaryButton(
+                label: 'BOOK NOW',
+                onPressed: () {
+                  wasPressed = true;
+                },
+              ),
             ),
           ),
-        ),
-      );
+        );
 
-      await tester.tap(find.text('BOOK NOW'));
-      await tester.pump();
+        await tester.tap(find.text('BOOK NOW'));
+        await tester.pump();
 
-      expect(wasPressed, isTrue);
-    },
-  );
+        expect(wasPressed, isTrue);
+      },
+    );
+
+  });
 }
