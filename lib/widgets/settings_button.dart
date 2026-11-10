@@ -6,10 +6,8 @@ class SettingsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: const Icon(
-        Icons.person_outline,
-      ),
-      tooltip: 'Settings',
+      icon: const Icon(Icons.settings),
+      tooltip: 'My Settings',
       onPressed: () {
         Navigator.pushNamed(
           context,
