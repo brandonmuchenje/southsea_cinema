@@ -1,19 +1,27 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/repositories/movie_repository.dart';
-import 'dart:convert';
-import 'package:flutter/services.dart';
-
-
-
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
   group('MovieRepository unit tests', () {
-    test('getMovies returns two movies', () {
+    test('getMovies returns  four movies', () {
       final MovieRepository repository = MovieRepository();
       final List<Movie> movies = repository.getMovies();
 
-      expect(movies.length, 2);
+      expect(movies.length, 4);
+    });
+
+    test('LoadMovieFromAsset reads the bundled JSON ', () async {
+      final MovieRepository repository = MovieRepository();
+      final List<Movie> movie = await repository.loadMovieFromAsset();
+
+      expect(movie.length, 4);
+      expect(movie[0].id, 'm1');
+      expect(movie[1].id, 'm2');
+      expect(movie[2].id, 'm3');
+      expect(movie[3].id, 'm4');
+      expect(repository.getMovies(), movie);
     });
 
     test('getMovies contains valid movie data', () {

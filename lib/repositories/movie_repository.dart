@@ -1,12 +1,17 @@
-import 'package:southsea_cinema/models/movie.dart';
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:southsea_cinema/models/movie.dart';
 
 class MovieRepository {
   List<Movie>? _cachedMovie;
 
   List<Movie> getMovies() {
+    final List<Movie>? cachedMovies = _cachedMovie;
+    if (cachedMovies != null) {
+      return cachedMovies;
+    }
+
     return [
       const Movie(
         id: 'm1',
@@ -57,10 +62,10 @@ class MovieRepository {
     }
     return null;
   }
-  Future<List<Movie>> loadMovieFromAsset({
-    String assetPath = "assets/data/movies.json"
-  }) async{
 
+  Future<List<Movie>> loadMovieFromAsset({
+    String assetPath = 'assets/data/movies.json',
+  }) async {
     final String jsonString = await rootBundle.loadString(assetPath);
     final dynamic decodedData = jsonDecode(jsonString);
     final List<dynamic> jsonList = decodedData as List<dynamic>;
@@ -74,6 +79,5 @@ class MovieRepository {
 
     _cachedMovie = loadedMovies;
     return loadedMovies;
-
   }
 }
