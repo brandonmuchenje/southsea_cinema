@@ -1,6 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/repositories/movie_repository.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
+
+
+
 
 void main() {
   group('MovieRepository unit tests', () {
@@ -36,9 +41,8 @@ void main() {
 
     test('getMovies contains matching movie when id exists', () {
       final MovieRepository repository = MovieRepository();
-      final Movie movie = repository
-          .getMovies()
-          .firstWhere((Movie movie) => movie.id == 'm1');
+      final Movie movie =
+          repository.getMovies().firstWhere((Movie movie) => movie.id == 'm1');
 
       expect(movie.name, 'Haunted Heists 2026');
       expect(movie.price, 10.99);
