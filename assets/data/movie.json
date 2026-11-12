@@ -1,0 +1,22 @@
+[
+
+
+    {
+  "id": "m1",
+  "name": "Haunted Heist",
+  "description": "A scary movie about robbing a haunted house",
+  "price": 10.99,
+  "imagePath": "assets/images/OIP.jpg"
+    },
+
+    {
+  "id": "m2",
+  "name": "White Chicks",
+  "description": "Two agents going undercover as white women",
+  "price": 10.99,
+  "imagePath": "assets/images/white_chicks.jpg"
+}
+
+
+
+]

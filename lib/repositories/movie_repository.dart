@@ -21,8 +21,18 @@ class MovieRepository {
         imagePath: "assets/images/white_chicks.jpg",
         screeningTime: "Friday 23 Oct 2026 20:00",
       ),
+      const Movie(
+        id: "m3",
+        name: "The Phantom of the Opera",
+        description: "A classic horror film.",
+        ageRating: "PG",
+        price: 12.99,
+        imagePath: "assets/images/phantom.jpg",
+        screeningTime: "Sunday 4 Oct 2026 15:00",
+      )
     ];
   }
+
   Movie? getMovieByID(String id) {
     for (final movie in getMovies()) {
       if (movie.id == id) {
