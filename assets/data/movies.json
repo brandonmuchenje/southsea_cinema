@@ -38,11 +38,11 @@
 
   {
   "id": "m5",
-  "name": "Nonexistent Movie",
+  "name": "Spiderman",
   "description": "This movie is not in the cinema's real listings.",
   "ageRating": "U",
   "price": 0.00,
-  "imagePath": "assets/images/nonexistent.jpg",
+  "imagePath": "assets/images/spiderman.jpg",
   "screeningTime": "Saturday 24 Oct 2026 14:00"
   }
 ]

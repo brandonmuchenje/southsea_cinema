@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
+import 'package:flutter/services.dart';
 import 'package:southsea_cinema/views/basket_screen.dart';
 import 'package:southsea_cinema/views/menu_screen.dart';
 import 'package:southsea_cinema/widgets/movie_card.dart';
@@ -14,6 +14,9 @@ void main() {
           home: MenuScreen(),
         ),
       );
+      setUp(() {
+        rootBundle.clear();
+      });
 
       expect(find.byType(MovieCard), findsWidgets);
       expect(find.byIcon(Icons.shopping_basket), findsOneWidget);
@@ -43,6 +46,14 @@ void main() {
         find.byType(BasketScreen),
         findsOneWidget,
       );
+
+      await tester.scrollUntilVisible(find.text('Shrek'), 10.99);
+      expect(find.text('£6.99'), findsOneWidget);
+      await tester.scrollUntilVisible(find.text('Spiderman'), 0.0);
+      await tester.pumpAndSettle();
+      expect(find.text('£0.00'), findsOneWidget);
+      expect(find.text('Image unavailable'), findsOneWidget);
+      expect(tester.takeException(), isNull);
     },
   );
 }

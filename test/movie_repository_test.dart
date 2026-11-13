@@ -22,9 +22,9 @@ void main() {
       expect(movie[2].id, 'm3');
       expect(movie[3].id, 'm4');
       expect(movie[4].id, 'm5');
-      expect(movie[4].name, 'Nonexistent Movie');
+      expect(movie[4].name, 'Spiderman');
       expect(movie[4].price, 0.0);
-      expect(movie[4].imagePath, 'assets/images/nonexistent.jpg');
+      expect(movie[4].imagePath, 'assets/images/spiderman.jpg');
       expect(repository.getMovies(), movie);
     });
 
@@ -72,7 +72,7 @@ void main() {
       final MovieRepository repository = MovieRepository();
       final bool hasMovie = repository
           .getMovies()
-          .any((Movie movie) => movie.id == 'non-existent');
+          .any((Movie movie) => movie.id == 'spiderman');
 
       expect(hasMovie, isFalse);
     });
