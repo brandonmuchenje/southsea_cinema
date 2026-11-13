@@ -16,11 +16,15 @@ void main() {
       final MovieRepository repository = MovieRepository();
       final List<Movie> movie = await repository.loadMovieFromAsset();
 
-      expect(movie.length, 4);
+      expect(movie.length, 5);
       expect(movie[0].id, 'm1');
       expect(movie[1].id, 'm2');
       expect(movie[2].id, 'm3');
       expect(movie[3].id, 'm4');
+      expect(movie[4].id, 'm5');
+      expect(movie[4].name, 'Nonexistent Movie');
+      expect(movie[4].price, 0.0);
+      expect(movie[4].imagePath, 'assets/images/nonexistent.jpg');
       expect(repository.getMovies(), movie);
     });
 
@@ -45,6 +49,14 @@ void main() {
       expect(second.screeningTime, isNotEmpty);
       expect(second.price, 10.99);
       expect(second.imagePath, isNotEmpty);
+
+      expect(movies[2].id, 'm3');
+      expect(movies[2].name, 'Shrek');
+      expect(movies[2].price, 10.99);
+      expect(movies[2].imagePath, 'assets/images/shrek.jpg');
+
+      expect(movies[3].id, 'm4');
+      expect(movies[3].price, 10.99);
     });
 
     test('getMovies contains matching movie when id exists', () {
