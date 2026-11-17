@@ -5,26 +5,25 @@ import 'package:southsea_cinema/repositories/movie_repository.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   group('MovieRepository unit tests', () {
-    test('getMovies returns  four movies', () {
+    test('getMovies returns four movies', () {
       final MovieRepository repository = MovieRepository();
       final List<Movie> movies = repository.getMovies();
 
       expect(movies.length, 4);
     });
 
-    test('LoadMovieFromAsset reads the bundled JSON ', () async {
+    test('loadMovieFromAsset reads the bundled JSON', () async {
       final MovieRepository repository = MovieRepository();
       final List<Movie> movie = await repository.loadMovieFromAsset();
 
-      expect(movie.length, 5);
+      expect(movie.length, 4);
       expect(movie[0].id, 'm1');
       expect(movie[1].id, 'm2');
       expect(movie[2].id, 'm3');
       expect(movie[3].id, 'm4');
-      expect(movie[4].id, 'm5');
-      expect(movie[4].name, 'Spiderman');
-      expect(movie[4].price, 0.0);
-      expect(movie[4].imagePath, 'assets/images/spiderman.jpg');
+      expect(movie[3].name, 'Sharknado');
+      expect(movie[3].price, 10.99);
+      expect(movie[3].imagePath, 'assets/images/sharknado.jpg');
       expect(repository.getMovies(), movie);
     });
 
@@ -34,7 +33,7 @@ void main() {
 
       final Movie first = movies[0];
       expect(first.id, 'm1');
-      expect(first.name, 'Haunted Heists 2026');
+      expect(first.name, 'Haunted Heist 2026');
       expect(first.description, isNotEmpty);
       expect(first.ageRating, isNotEmpty);
       expect(first.screeningTime, isNotEmpty);
@@ -64,7 +63,7 @@ void main() {
       final Movie movie =
           repository.getMovies().firstWhere((Movie movie) => movie.id == 'm1');
 
-      expect(movie.name, 'Haunted Heists 2026');
+      expect(movie.name, 'Haunted Heist 2026');
       expect(movie.price, 10.99);
     });
 
